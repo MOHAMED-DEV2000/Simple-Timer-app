@@ -10,13 +10,33 @@ let resetBtn = document.querySelector(".reset-btn");
 
 // Set a timer default Status
 let counterState = false;
+let i = 0;
 
-function checkTimerBtns(){
-    // Setting event listeners
-    startBtn.addEventListener("click", startTimer);
-    pauseBtn.addEventListener("click", pauseTimer);
-    resetBtn.addEventListener("click", resetTimer);
+
+function increaseSeconds(){
+
+    if (i < 60){
+        if (i < 9){
+            console.log(i);
+            secs.innerHTML = "0" + i;
+        }else {
+            secs.innerHTML = i;
+        }
+    
+        i++;
+    }else {
+        secs.innerHTML = "0" + 0;
+    }
 }
 
-// For each 1 second check the 3 buttons
-let idInterval = setInterval(checkTimerBtns, 1000);
+function startTimer(){
+    console.log("Start");
+
+    setInterval(increaseSeconds, 1000);
+}
+
+function checkTimerBtns(){
+    startBtn.addEventListener("click", startTimer);
+}
+
+let id = setInterval(checkTimerBtns, 1000);
