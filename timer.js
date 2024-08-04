@@ -10,7 +10,7 @@ let resetBtn = document.querySelector(".reset-btn");
 
 // Set a timer default Status
 let timerIsPaused = false;
-let currHour = (currMin = currSec = 0);
+let currHour = currMin = currSec = 0;
 let startID;
 
 const updateHour = () => {
@@ -22,20 +22,20 @@ const updateHour = () => {
 };
 
 const updateMin = () => {
-    if (timerIsPaused === false && currMin < 60) {
-        currMin < 10 ? (mins.innerHTML = "0" + currMin) : (mins.innerHTML = currMin);
+    if (timerIsPaused === false && currMin < 59) {
         currMin++;
-    } else if (timerIsPaused === false && currMin === 60) {
+        currMin < 10 ? (mins.innerHTML = "0" + currMin) : (mins.innerHTML = currMin);
+    } else if (timerIsPaused === false && currMin === 59) {
         currMin = 0;
         updateHour();
     }
 };
 
 const updateSec = () => {
-    if (timerIsPaused === false && currSec < 60) {
+    if (timerIsPaused === false && currSec < 59) {
         currSec < 10 ? (secs.innerHTML = "0" + currSec) : (secs.innerHTML = currSec);
         currSec++;
-    } else if (timerIsPaused === false && currSec === 60) {
+    } else if (timerIsPaused === false && currSec === 59) {
         currSec = 0;
         updateMin();
     }
@@ -43,24 +43,25 @@ const updateSec = () => {
 
 const updateTimer = () => {
     updateSec();
-    updateMin();
-    updateHour();
 }
 
 function startTimer() {
     console.log("Start");
+
     timerIsPaused = false;
-    startID = setInterval(updateTimer, 1000);
+    startID = setInterval(updateTimer, 100);
 }
 
 function pauseTimer() {
     console.log("Pause");
+
     timerIsPaused = true;
     clearInterval(startID);
 }
 
 function resetTimer() {
     console.log("Reset");
+
     currHour = currMin = currSec = 0;
     clearInterval(startID);
     secs.innerHTML = "00";
