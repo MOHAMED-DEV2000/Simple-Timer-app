@@ -1,3 +1,6 @@
+// Dear reader i'm suck at coding so no complains :)
+
+
 // Selecting the digit spans - hours, minutes and seconds
 let hours = document.querySelector(".timer .hour");
 let mins = document.querySelector(".timer .min");
