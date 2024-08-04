@@ -1,6 +1,3 @@
-// Dear reader i'm suck at coding so no complains :)
-
-
 // Selecting the digit spans - hours, minutes and seconds
 let hours = document.querySelector(".timer .hour");
 let mins = document.querySelector(".timer .min");
@@ -11,7 +8,6 @@ let startBtn = document.querySelector(".start-btn");
 let pauseBtn = document.querySelector(".pause-btn");
 let resetBtn = document.querySelector(".reset-btn");
 
-// Set a timer default Status
 let timerIsPaused = false;
 let currHour = currMin = currSec = 0;
 let startID;
@@ -49,35 +45,23 @@ const updateTimer = () => {
 }
 
 function startTimer() {
-    console.log("Start");
-
     timerIsPaused = false;
-    startID = setInterval(updateTimer, 1000);
+    startID = setInterval(updateTimer, 10);
 }
 
 function pauseTimer() {
-    console.log("Pause");
-
-    timerIsPaused = true;
     clearInterval(startID);
+    timerIsPaused = true;
 }
 
 function resetTimer() {
-    console.log("Reset");
-
-    currHour = currMin = currSec = 0;
     clearInterval(startID);
-    secs.innerHTML = "00";
-    mins.innerHTML = "00";
-    hours.innerHTML = "00";
+    currHour = currMin = currSec = 0;
+    secs.innerHTML = mins.innerHTML = hours.innerHTML = "00";
 }
 
-function checkTimerBtns() {
-    startBtn.addEventListener("click", startTimer);
+startBtn.addEventListener("click", startTimer);
 
-    pauseBtn.addEventListener("click", pauseTimer);
+pauseBtn.addEventListener("click", pauseTimer);
 
-    resetBtn.addEventListener("click", resetTimer);
-}
-
-let id = setInterval(checkTimerBtns, 1000);
+resetBtn.addEventListener("click", resetTimer);
