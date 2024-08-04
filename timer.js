@@ -49,7 +49,7 @@ function startTimer() {
     console.log("Start");
 
     timerIsPaused = false;
-    startID = setInterval(updateTimer, 100);
+    startID = setInterval(updateTimer, 1000);
 }
 
 function pauseTimer() {

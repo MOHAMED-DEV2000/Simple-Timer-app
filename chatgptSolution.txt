@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer App</title>
+    <style>
+        .timer-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .btns {
+            margin-top: 20px;
+        }
+        .btn {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="timer-container">
+        <h1 class="title">Timer App</h1>
+        <div class="timer">
+            <span class="hour">00</span> :
+            <span class="min">00</span> :
+            <span class="sec">00</span>
+        </div>    
+        <div class="btns">
+            <button class="start-btn btn">Start</button>
+            <button class="pause-btn btn">Pause</button>
+            <button class="reset-btn btn">Reset</button>
+        </div>
+    </div>
+
+    <script>
+        let timer;
+        let isRunning = false;
+        let seconds = 0;
+
+        const hourSpan = document.querySelector('.hour');
+        const minSpan = document.querySelector('.min');
+        const secSpan = document.querySelector('.sec');
+
+        const startButton = document.querySelector('.start-btn');
+        const pauseButton = document.querySelector('.pause-btn');
+        const resetButton = document.querySelector('.reset-btn');
+
+        startButton.addEventListener('click', () => {
+            if (!isRunning) {
+                isRunning = true;
+                timer = setInterval(updateTimer, 1000);
+            }
+        });
+
+        pauseButton.addEventListener('click', () => {
+            clearInterval(timer);
+            isRunning = false;
+        });
+
+        resetButton.addEventListener('click', () => {
+            clearInterval(timer);
+            isRunning = false;
+            seconds = 0;
+            updateDisplay();
+        });
+
+        function updateTimer() {
+            seconds++;
+            updateDisplay();
+        }
+
+        function updateDisplay() {
+            const hrs = Math.floor(seconds / 3600);
+            const mins = Math.floor((seconds % 3600) / 60);
+            const secs = seconds % 60;
+
+            hourSpan.textContent = String(hrs).padStart(2, '0');
+            minSpan.textContent = String(mins).padStart(2, '0');
+            secSpan.textContent = String(secs).padStart(2, '0');
+        }
+    </script>
+</body>
+</html>
