@@ -1,9 +1,7 @@
-// Selecting the digit spans - hours, minutes and seconds
 let hours = document.querySelector(".timer .hour");
 let mins = document.querySelector(".timer .min");
 let secs = document.querySelector(".timer .sec");
 
-// Selectng the btns - start, reset and pause
 let startBtn = document.querySelector(".start-btn");
 let pauseBtn = document.querySelector(".pause-btn");
 let resetBtn = document.querySelector(".reset-btn");
@@ -40,9 +38,7 @@ const updateSec = () => {
     }
 };
 
-const updateTimer = () => {
-    updateSec();
-}
+const updateTimer = () => updateSec();
 
 function startTimer() {
     timerIsPaused = false;
@@ -61,7 +57,5 @@ function resetTimer() {
 }
 
 startBtn.addEventListener("click", startTimer);
-
 pauseBtn.addEventListener("click", pauseTimer);
-
 resetBtn.addEventListener("click", resetTimer);
