@@ -1,1 +1,1 @@
-# Simple-Timer-app
+# Simple Timer App ⏱️
