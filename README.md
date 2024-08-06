@@ -1,20 +1,20 @@
-Simple Timer App ⏱️
+# Simple Timer App ⏱️
 
 This is a simple timer app.
 
-Features
+### Features
 - Easy to use
 
-Installation
+### Installation
 1. Clone the repository
 
-Usage
+### Usage
 1. Start the timer
 2. Stop the timer
 3. Reset the timer
 
-Contributing
+### Contributing
 Feel free to fork this project and submit pull requests. Contributions are welcome!
 
-License
+### License
 This project is licensed under the MIT License.
