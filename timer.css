@@ -1,0 +1,169 @@
+/* General styling */
+
+:root {
+    --timer-bg-color: blueviolet;
+    --start-bg-color: green;
+    --start-bg-color-hover: rgb(68, 0, 132);
+    --reset-bg-color: red;
+    --reset-bg-color-hover: rgb(68, 0, 132);
+    --pause-bg-color: white;
+    --pause-bg-color-hover: gray;
+    --body-bg-color: black;
+
+    --sm-screen: 600px;
+    --md-screen: 920px;
+    --larg-screen: 1240px;
+    --x-larg-screen: 1800px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: medium;
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+
+.timer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 5rem;
+    background-color: rgb(35, 0, 0);
+    border-bottom: 1px solid white;
+
+    width: 50%;
+    height: 80%;
+
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translateX(-50%);
+}
+
+.title {
+    font-size: 70px;
+    border: 1px solid white;
+}
+
+.timer {
+    font-size: 40px;
+
+    padding: 2rem 0em;
+}
+
+.btns {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    
+    margin-bottom: auto;
+}
+
+.btn{
+    outline: none;
+    padding: 0.5em 2em;
+
+    border: 1px white solid;
+    border-radius: 0.2rem;
+
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.reset-btn {
+    color: white;
+    background-color: var(--reset-bg-color);
+}
+
+.reset-btn:hover {
+    cursor: pointer;
+
+    background-color: var(--reset-bg-color-hover);
+}
+
+.start-btn {
+    color: white;
+    background-color: var(--start-bg-color);
+}
+
+.start-btn:hover {
+    cursor: pointer;
+
+    background-color: var(--start-bg-color-hover);
+}
+
+.pause-btn {
+    background-color: var(--pause-bg-color);
+}
+
+.pause-btn:hover {
+    cursor: pointer;
+    color: white;
+    background-color: var(--pause-bg-color-hover);
+}
+
+/* @custom-media --small-screen (width <= 600px); */
+
+@media (width <= 600px) {
+    .timer-container {
+        justify-content: space-evenly;
+        border-bottom: 1px solid white;
+    
+        width: 70%;
+        height: 80%;
+    }
+
+    .title {
+        font-size: 40px;
+    }
+
+    .timer {
+        font-size: 25px;
+    }
+
+    .btns {
+        display: flex;
+        justify-content: space-around;
+        padding: 1em;
+    }
+
+    .btn{
+        padding: 0.5em 0.6em;
+    }
+}
+
+@media (600px < width <= 920px) {
+    .timer-container {
+        justify-content: space-evenly;
+        border-bottom: 1px solid white;
+
+        width: 50%;
+        height: 80%;
+    }
+
+    .title {
+        font-size: 40px;
+    }
+
+    .timer {
+        font-size: 25px;
+    }
+
+    .btns {
+        display: flex;
+        justify-content: space-around;
+        padding: 1em;
+    }
+
+    .btn{
+        padding: 0.5em 0.6em;
+    }
+}
